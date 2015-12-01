@@ -31,3 +31,6 @@ gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. 
 gem 'turbolinks'
 
+# use for CSS style
+gem 'bootstrap-sass'
+
