@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
   belongs_to :topic
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_many :ratings
   
   default_scope { order('created_at DESC') }
   
