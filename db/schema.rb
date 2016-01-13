@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160109150837) do
+ActiveRecord::Schema.define(version: 20160112124321) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -23,6 +23,23 @@ ActiveRecord::Schema.define(version: 20160109150837) do
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "labelings", force: :cascade do |t|
+    t.integer  "label_id"
+    t.integer  "labeable_id"
+    t.string   "labeable_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "labelings", ["labeable_type", "labeable_id"], name: "index_labelings_on_labeable_type_and_labeable_id"
+  add_index "labelings", ["label_id"], name: "index_labelings_on_label_id"
+
+  create_table "labels", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
