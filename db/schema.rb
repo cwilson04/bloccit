@@ -26,14 +26,14 @@ ActiveRecord::Schema.define(version: 20160112124321) do
 
   create_table "labelings", force: :cascade do |t|
     t.integer  "label_id"
-    t.integer  "labeable_id"
-    t.string   "labeable_type"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "labelable_id"
+    t.string   "labelable_type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
-  add_index "labelings", ["labeable_type", "labeable_id"], name: "index_labelings_on_labeable_type_and_labeable_id"
   add_index "labelings", ["label_id"], name: "index_labelings_on_label_id"
+  add_index "labelings", ["labelable_type", "labelable_id"], name: "index_labelings_on_labelable_type_and_labelable_id"
 
   create_table "labels", force: :cascade do |t|
     t.string   "name"
