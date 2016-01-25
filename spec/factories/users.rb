@@ -1,3 +1,4 @@
+include RandomData
 FactoryGirl.define do
   pw = RandomData.random_sentence
   factory :user do
