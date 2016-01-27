@@ -2,6 +2,6 @@ FactoryGirl.define do
    factory :vote do
      post
      user
-     rank 0.0
+     value [-1, 1].sample
    end
  end
