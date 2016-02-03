@@ -29,7 +29,7 @@ RSpec.describe Topic, type: :model do
   describe "scopes" do
     before do
       @public_topic = Topic.create!(name: RandomData.random_sentence, description: RandomData.random_paragraph)
-      @private_topic = Topic.create!(name: RandomData.random_sentence, description: RandomData.random_paragraph)
+      @private_topic = Topic.create!(name: RandomData.random_sentence, description: RandomData.random_paragraph, public: false)
     end
     
     describe "visible_to(user)" do
